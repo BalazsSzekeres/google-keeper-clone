@@ -1,8 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import Header from "./Components/Header";
 import Note from "./Components/Note";
+import notes from "./Data/notes";
 import Footer from "./Components/Footer";
 
 
@@ -10,7 +10,13 @@ import Footer from "./Components/Footer";
 function App() {
 return <div>
     <Header/>
-    <Note />
+    {notes.map(noteEntry => (
+        <Note
+            key ={noteEntry.id}
+            title = {noteEntry.title}
+            content = {noteEntry.content}
+        />
+    ))}
     <Footer/>
 </div>
 }
